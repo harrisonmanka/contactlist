@@ -1,32 +1,26 @@
-public class Table<T extends Contact> implements TableIF{
+public class Table<T extends Contact>{
 
-    @Override
-    public TableIF<T> difference(TableIF table) {
+    public Table<T> difference(Table table) {
         return null;
     }
 
-    @Override
-    public void insert(ContactIF data) {
+    public void insert(Contact data) {
 
     }
 
-    @Override
-    public TableIF<T> intersect(String attb, String value, TableIF table) {
+    public Table<T> intersect(String attb, String value, Table table) {
         return null;
     }
 
-    @Override
     public void remove(String attb, String value) {
 
     }
 
-    @Override
-    public TableIF<T> select(String attb, String value) {
+    public Table<T> select(String attb, String value) {
         return null;
     }
 
-    @Override
-    public TableIF<T> union(TableIF table) {
+    public Table<T> union(Table table) {
         return null;
     }
 }
