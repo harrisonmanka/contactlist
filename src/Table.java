@@ -50,7 +50,7 @@ public class Table<T extends Contact>{
                 case LAST -> tempVal = current.data.getInfo().getLastName();
                 case STATUS -> tempVal = current.data.getInfo().getStatus().toString();
                 case ADDRESS -> tempVal = current.data.getAddress().toString();
-                case PHONE -> tempVal = current.data.getPhone();
+                case PHONE -> tempVal = current.data.getPhoneNumber();
                 case EMAIL -> tempVal = current.data.getEmail();
             }
             if (value.equals(tempVal)) {
@@ -86,7 +86,7 @@ public class Table<T extends Contact>{
                 case LAST -> tempVal = current.data.getInfo().getLastName();
                 case STATUS -> tempVal = current.data.getInfo().getStatus().toString();
                 case ADDRESS -> tempVal = current.data.getAddress().toString();
-                case PHONE -> tempVal = current.data.getPhone();
+                case PHONE -> tempVal = current.data.getPhoneNumber();
                 case EMAIL -> tempVal = current.data.getEmail();
             }
             if (value.equals(tempVal)) {
