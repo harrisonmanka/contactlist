@@ -4,14 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="48904fcc-10b3-4021-b86d-1138d1d75941" name="Changes" comment="Interfaces to code to that contain all methods listed in the project pdf">
-      <change afterPath="$PROJECT_DIR$/src/Attribute.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Contact.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Contact.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ContactIF.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Table.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Table.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/TableIF.java" beforeDir="false" />
-    </list>
+    <list default="true" id="48904fcc-10b3-4021-b86d-1138d1d75941" name="Changes" comment="Started work on the Table class, select and remove done but untested." />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -65,7 +58,14 @@
       <option name="project" value="LOCAL" />
       <updated>1694541172385</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="Started work on the Table class, select and remove done but untested.">
+      <created>1694549805543</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1694549805543</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -81,6 +81,7 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Interfaces to code to that contain all methods listed in the project pdf" />
-    <option name="LAST_COMMIT_MESSAGE" value="Interfaces to code to that contain all methods listed in the project pdf" />
+    <MESSAGE value="Started work on the Table class, select and remove done but untested." />
+    <option name="LAST_COMMIT_MESSAGE" value="Started work on the Table class, select and remove done but untested." />
   </component>
 </project>
