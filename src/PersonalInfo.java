@@ -1,9 +1,10 @@
 public class PersonalInfo {
+
     private String firstName;
     private String lastName;
     private Status status;
 
-    private PersonalInfo(String firstName, String lastName, Status status){
+    public PersonalInfo(String firstName, String lastName, Status status){
         this.firstName = firstName;
         this.lastName = lastName;
         this.status = status;

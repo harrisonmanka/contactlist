@@ -4,11 +4,12 @@ public enum Status {
     SINGLE("Single"),
     DIVORCED("Divorced"),
     WIDOWED("Widowed"),
+    FRIEND("Friend"),
     NA("NA");
 
     private final String status;
 
-    private Status(String status) {
+    Status(String status) {
         this.status = status;
     }
 
