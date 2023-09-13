@@ -4,7 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="48904fcc-10b3-4021-b86d-1138d1d75941" name="Changes" comment="Started work on the Table class, select and remove done but untested." />
+    <list default="true" id="48904fcc-10b3-4021-b86d-1138d1d75941" name="Changes" comment="Fixed typo in Table">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Table.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Table.java" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -72,7 +75,14 @@
       <option name="project" value="LOCAL" />
       <updated>1694549932902</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="Fixed typo in Table">
+      <created>1694550247214</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1694550247214</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -95,6 +105,7 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Interfaces to code to that contain all methods listed in the project pdf" />
     <MESSAGE value="Started work on the Table class, select and remove done but untested." />
-    <option name="LAST_COMMIT_MESSAGE" value="Started work on the Table class, select and remove done but untested." />
+    <MESSAGE value="Fixed typo in Table" />
+    <option name="LAST_COMMIT_MESSAGE" value="Fixed typo in Table" />
   </component>
 </project>

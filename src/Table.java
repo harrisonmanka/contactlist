@@ -10,17 +10,33 @@ public class Table<T extends Contact>{
     }
 
     public Table<T> difference(Table<T> table) {
-        return null;
+        Table<T> returnTable = new Table<>();
+        Node<T> currentThis = this.head;
+        Node<T> currentThat = table.head;
+        boolean isInside = false;
+        for (int i = 0; i < this.length; i++) {
+            for (int j = 0; j < table.length && !isInside; j++) {
+                if (currentThis.equals(currentThat)) {
+                    isInside = true;
+                }
+                currentThat = currentThat.next;
+            }
+            if (!isInside) {
+                returnTable.insert(currentThis.data);
+            }
+            currentThis = currentThis.next;
+        }
+        return returnTable;
     }
 
     public void insert(Contact data) {
         Node<T> temp = new Node<>(data);
-        if(this.head == null) {
+        if (this.head == null) {
             this.head = temp;
         }
         else {
             Node<T> current = head;
-            while(current.next != null) {
+            while (current.next != null) {
                 current = current.next;
             }
             current.next = temp;
@@ -98,8 +114,41 @@ public class Table<T extends Contact>{
         return tempTable;
     }
 
-    public Table<T> union(Table table) {
-        return null;
+    public Table<T> union(Table<T> table) {
+        Table<T> returnTable = new Table<>();
+        Node<T> current = this.head;
+        Node<T> compareThis = null;
+        for (int i = 0; i < this.length; i++) {
+            returnTable.insert(current.data);
+            current = current.next;
+        };
+        for (int i = 0; i < table.length; i++) {
+            returnTable.insert(table.getNodeAt(i).data);
+        }
+        compareThis = table.head;
+        current = table.head;
+        for (int i = 0; i < returnTable.length; i++) {
+            for (int j = i; j < returnTable.length; j++) {
+                if (compareThis.data.equals(current.next.data)) {
+                    current.next = current.next.next;
+                }
+                current = current.next;
+            }
+            compareThis = compareThis.next;
+            current = compareThis;
+        }
+        return returnTable;
+    }
+
+    private Node<T> getNodeAt(int index) {
+        Node<T> current = null;
+        if (index >= 0 && index < this.length) {
+            current = head;
+            for (int i = 0; i < index; i++) {
+                current = current.next;
+            }
+        }
+        return current;
     }
 
     private static class Node<T>{
@@ -112,18 +161,6 @@ public class Table<T extends Contact>{
 
         private Node(Contact data) {
             this.data = data;
-        }
-
-        private Contact getData() {
-            return this.data;
-        }
-
-        private Node<T> getNext() {
-            return this.next;
-        }
-
-        private void setNext(Node next) {
-            this.next = next;
         }
     }
 }
