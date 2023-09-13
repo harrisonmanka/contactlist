@@ -4,10 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="48904fcc-10b3-4021-b86d-1138d1d75941" name="Changes" comment="Union, Select, and Difference methods done.">
+    <list default="true" id="48904fcc-10b3-4021-b86d-1138d1d75941" name="Changes" comment="Tables logic finished">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Label.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Label.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Status.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Status.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Table.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Table.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -37,7 +35,7 @@
   "keyToString": {
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
-    "git-widget-placeholder": "master"
+    "git-widget-placeholder": "colton__table__class"
   }
 }]]></component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
@@ -91,7 +89,14 @@
       <option name="project" value="LOCAL" />
       <updated>1694633388298</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="Tables logic finished">
+      <created>1694637796953</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1694637796953</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -105,6 +110,17 @@
                   <entry key="Show.Git.Branches" value="true" />
                 </map>
               </option>
+              <option name="FILTERS">
+                <map>
+                  <entry key="branch">
+                    <value>
+                      <list>
+                        <option value="colton_table_class" />
+                      </list>
+                    </value>
+                  </entry>
+                </map>
+              </option>
             </State>
           </value>
         </entry>
@@ -116,6 +132,7 @@
     <MESSAGE value="Started work on the Table class, select and remove done but untested." />
     <MESSAGE value="Fixed typo in Table" />
     <MESSAGE value="Union, Select, and Difference methods done." />
-    <option name="LAST_COMMIT_MESSAGE" value="Union, Select, and Difference methods done." />
+    <MESSAGE value="Tables logic finished" />
+    <option name="LAST_COMMIT_MESSAGE" value="Tables logic finished" />
   </component>
 </project>

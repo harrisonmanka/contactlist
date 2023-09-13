@@ -180,6 +180,14 @@ public class Table<T extends Contact>{
         return current;
     }
 
+    public String toString() {
+        StringBuilder result = new StringBuilder();
+        for (Node<T> current = head; current != null; current = current.next) {
+            result.append(current.data.toString());
+        }
+        return result.toString();
+    }
+
     private static class Node<T>{
 
 
