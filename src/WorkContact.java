@@ -4,6 +4,11 @@ public class WorkContact extends Contact implements Cloneable{
     private String company;
     private String department;
 
+    public WorkContact(String title, String company, String department){
+        this.title = title;
+        this.company = company;
+        this.department = department;
+    }
 
     String getTitle() {
         return this.title;

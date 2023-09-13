@@ -33,12 +33,24 @@ public class ContactList {
             while(scanner.hasNext()){
                 String line = scanner.nextLine();
                 String[] temp = line.split(",\\s*");
-                Contact contact = new Contact();
+                Contact contact = new PersonalContact(Label.valueOf(temp[8]));
+                contact.setInfo(new PersonalInfo(temp[1], temp[0], Status.NA));
+                contact.setEmail(temp[2]);
+                contact.setPhoneNumber(temp[3]);
+                contact.buildAddress(temp[4], temp[5], temp[6], temp[7]);
+                personalContacts.insert(contact);
             }
         }
         else if(scanner.next().equals("")){
             while(scanner.hasNext()){
-
+                String line = scanner.nextLine();
+                String[] temp = line.split(",\\s*");
+                Contact contact = new WorkContact(temp[9], temp[10], temp[11]);
+                contact.setInfo(new PersonalInfo(temp[1], temp[0], Status.valueOf(temp[2])));
+                contact.setEmail(temp[3]);
+                contact.setPhoneNumber(temp[4]);
+                contact.buildAddress(temp[5], temp[6], temp[7], temp[8]);
+                workContacts.insert(contact);
             }
         }
         else{

@@ -28,7 +28,7 @@ public class Contact{
     }
 
     public Address getAddress() {
-        return address;
+        return this.address;
     }
 
     public void setAddress(Address address) {
@@ -49,6 +49,13 @@ public class Contact{
 
     public void setEmail(String email) {
         this.email = email;
+    }
+
+    public void buildAddress(String streetAddress, String city, String state, String zip){
+        this.address.streetAddress = streetAddress;
+        this.address.city = city;
+        this.address.state = state;
+        this.address.zip = zip;
     }
 
     private class Address{
