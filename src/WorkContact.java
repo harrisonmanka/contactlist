@@ -34,6 +34,20 @@ public class WorkContact extends Contact implements Cloneable{
         this.department = department;
     }
 
+    public String toString(){
+        String result = "";
+        result += "Job Title: " + getTitle() + "\n";
+        result += "Company: " + getCompany() + "\n";
+        result += "Department: " + getDepartment() + "\n";
+        result += "\t" + super.getFirstName() + ", " + super.getLastName() + ": (" +
+                super.getStatus() + "):";
+        result += "\tPhone: " + super.getPhoneNumber() + "\n";
+        result += "\t" + super.getStreet() + "\n\t" + super.getCity() + ", " +
+                super.getState() + " " + super.getZip() +
+                "--------------------------------------------------------------\n";
+        return result;
+    }
+
     @Override
     public WorkContact clone() {
         try {

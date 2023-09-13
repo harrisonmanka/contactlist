@@ -27,6 +27,18 @@ public class Contact{
         this.info = info;
     }
 
+    public String getFirstName(){
+        return this.info.getFirstName();
+    }
+
+    public String getLastName(){
+        return this.info.getLastName();
+    }
+
+    public String getStatus(){
+        return this.info.getStatus().toString();
+    }
+
     public Address getAddress() {
         return this.address;
     }
@@ -49,6 +61,22 @@ public class Contact{
 
     public void setEmail(String email) {
         this.email = email;
+    }
+
+    public String getStreet(){
+        return this.address.streetAddress;
+    }
+
+    public String getCity(){
+        return this.address.city;
+    }
+
+    public String getState(){
+        return this.address.state;
+    }
+
+    public String getZip(){
+        return this.address.zip;
     }
 
     public void buildAddress(String streetAddress, String city, String state, String zip){

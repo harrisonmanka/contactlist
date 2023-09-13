@@ -1,11 +1,11 @@
 public enum Status {
 
-    MARRIED("Married"),
-    SINGLE("Single"),
-    DIVORCED("Divorced"),
-    WIDOWED("Widowed"),
-    FRIEND("Friend"),
-    NA("NA");
+    MARRIED("married"),
+    SINGLE("single"),
+    DIVORCED("divorced"),
+    WIDOWED("widowed"),
+    FRIEND("friend"),
+    NA("na");
 
     private final String status;
 
