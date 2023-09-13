@@ -1,3 +1,5 @@
+import java.util.Objects;
+
 public class Table<T extends Contact>{
 
     private Node<T> head;
@@ -10,7 +12,7 @@ public class Table<T extends Contact>{
     }
 
     public Table<T> difference(Table<T> table) {
-        Table<T> returnTable = new Table<>();
+        Table<T> resultTable = new Table<>();
         Node<T> currentThis = this.head;
         Node<T> currentThat = table.head;
         boolean isInside = false;
@@ -22,11 +24,11 @@ public class Table<T extends Contact>{
                 currentThat = currentThat.next;
             }
             if (!isInside) {
-                returnTable.insert(currentThis.data);
+                resultTable.insert(currentThis.data);
             }
             currentThis = currentThis.next;
         }
-        return returnTable;
+        return resultTable;
     }
 
     public void insert(Contact data) {
@@ -41,17 +43,57 @@ public class Table<T extends Contact>{
             }
             current.next = temp;
         }
+        this.length++;
     }
 
     public Table<T> intersect(String attribute, String value, Table<T> table) {
-        return null;
+        Table<T> resultTable = new Table<>();
+        Node<T> compareThis = this.head;
+        Node<T> compareThat = table.head;
+        Attribute attb = null;
+        try {
+            attb = Attribute.valueOf(value.toLowerCase().trim());
+        }
+        catch (IllegalArgumentException e) {
+            System.out.println("-----------------------------------------------" +
+                    "\nThe attribute given does not exist" +
+                    "\n-----------------------------------------------");
+        }
+
+        String tempVal1 = null;
+        String tempVal2 = null;
+        for (int i = 0; i < this.length; i++) {
+            tempVal1 = this.attributeGrabber(attb, compareThis);
+            for (int j = 0; j < table.length; j++) {
+                tempVal2 = this.attributeGrabber(attb, compareThat);
+                if (tempVal1.equals(tempVal2)) {
+                    resultTable.insert(compareThis.data);
+                }
+                compareThat = compareThat.next;
+            }
+            compareThis = compareThis.next;
+        }
+        return resultTable;
+    }
+
+    private String attributeGrabber(Attribute attribute, Node<T> node) {
+        String result = null;
+        switch (attribute) {
+            case FIRST -> result = node.data.getInfo().getFirstName();
+            case LAST -> result = node.data.getInfo().getLastName();
+            case STATUS -> result = node.data.getInfo().getStatus().toString();
+            case ADDRESS -> result = node.data.getAddress().toString();
+            case PHONE -> result = node.data.getPhoneNumber();
+            case EMAIL -> result = node.data.getEmail();
+        }
+        return result;
     }
 
     public void remove(String attribute, String value) {
         value = value.toLowerCase().trim();
         Attribute attb = null;
         try {
-            attb = Attribute.valueOf(value);
+            attb = Attribute.valueOf(value.toLowerCase().trim());
         }
         catch (IllegalArgumentException e) {
             System.out.println("The attribute given does not exist\n");
@@ -61,14 +103,7 @@ public class Table<T extends Contact>{
         Node<T> tempNode = current;
         for (int i = 0; i < length; i++) {
             String tempVal = null;
-            switch (attb) {
-                case FIRST -> tempVal = current.data.getInfo().getFirstName();
-                case LAST -> tempVal = current.data.getInfo().getLastName();
-                case STATUS -> tempVal = current.data.getInfo().getStatus().toString();
-                case ADDRESS -> tempVal = current.data.getAddress().toString();
-                case PHONE -> tempVal = current.data.getPhoneNumber();
-                case EMAIL -> tempVal = current.data.getEmail();
-            }
+            tempVal = this.attributeGrabber(attb, current);
             if (value.equals(tempVal)) {
                 if(current == head) {
                     head = current.next;
@@ -76,6 +111,7 @@ public class Table<T extends Contact>{
                 else {
                     tempNode.next = current.next;
                 }
+                this.length--;
             }
             tempNode = current;
             current = current.next;
@@ -86,7 +122,7 @@ public class Table<T extends Contact>{
         value = value.toLowerCase().trim();
         Attribute attb = null;
         try {
-            attb = Attribute.valueOf(value);
+            attb = Attribute.valueOf(value.toLowerCase().trim());
         }
         catch (IllegalArgumentException e) {
             System.out.println("The attribute given does not exist\n");
@@ -97,14 +133,7 @@ public class Table<T extends Contact>{
         boolean found = false;
         for (int i = 0; i < length; i++) {
             String tempVal = null;
-            switch (attb) {
-                case FIRST -> tempVal = current.data.getInfo().getFirstName();
-                case LAST -> tempVal = current.data.getInfo().getLastName();
-                case STATUS -> tempVal = current.data.getInfo().getStatus().toString();
-                case ADDRESS -> tempVal = current.data.getAddress().toString();
-                case PHONE -> tempVal = current.data.getPhoneNumber();
-                case EMAIL -> tempVal = current.data.getEmail();
-            }
+            tempVal = this.attributeGrabber(attb, current);
             if (value.equals(tempVal)) {
                 tempTable.insert(current.data);
             }
@@ -115,20 +144,20 @@ public class Table<T extends Contact>{
     }
 
     public Table<T> union(Table<T> table) {
-        Table<T> returnTable = new Table<>();
+        Table<T> resultTable = new Table<>();
         Node<T> current = this.head;
         Node<T> compareThis = null;
         for (int i = 0; i < this.length; i++) {
-            returnTable.insert(current.data);
+            resultTable.insert(current.data);
             current = current.next;
         };
         for (int i = 0; i < table.length; i++) {
-            returnTable.insert(table.getNodeAt(i).data);
+            resultTable.insert(table.getNodeAt(i).data);
         }
         compareThis = table.head;
         current = table.head;
-        for (int i = 0; i < returnTable.length; i++) {
-            for (int j = i; j < returnTable.length; j++) {
+        for (int i = 0; i < resultTable.length; i++) {
+            for (int j = i; j < resultTable.length; j++) {
                 if (compareThis.data.equals(current.next.data)) {
                     current.next = current.next.next;
                 }
@@ -137,7 +166,7 @@ public class Table<T extends Contact>{
             compareThis = compareThis.next;
             current = compareThis;
         }
-        return returnTable;
+        return resultTable;
     }
 
     private Node<T> getNodeAt(int index) {

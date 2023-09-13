@@ -4,8 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="48904fcc-10b3-4021-b86d-1138d1d75941" name="Changes" comment="Fixed typo in Table">
+    <list default="true" id="48904fcc-10b3-4021-b86d-1138d1d75941" name="Changes" comment="Union, Select, and Difference methods done.">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Label.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Label.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Status.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Status.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Table.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Table.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -82,7 +84,14 @@
       <option name="project" value="LOCAL" />
       <updated>1694550247214</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="Union, Select, and Difference methods done.">
+      <created>1694633388298</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1694633388298</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -106,6 +115,7 @@
     <MESSAGE value="Interfaces to code to that contain all methods listed in the project pdf" />
     <MESSAGE value="Started work on the Table class, select and remove done but untested." />
     <MESSAGE value="Fixed typo in Table" />
-    <option name="LAST_COMMIT_MESSAGE" value="Fixed typo in Table" />
+    <MESSAGE value="Union, Select, and Difference methods done." />
+    <option name="LAST_COMMIT_MESSAGE" value="Union, Select, and Difference methods done." />
   </component>
 </project>

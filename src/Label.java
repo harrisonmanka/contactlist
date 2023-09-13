@@ -1,12 +1,12 @@
 public enum Label {
 
-    MOM("Mom"),
-    DAD("Dad"),
-    SON("Son"),
-    DAUGHTER("Daughter"),
-    FRIEND("Friend"),
-    SISTER("Sister"),
-    BROTHER("Brother");
+    MOM("mom"),
+    DAD("dad"),
+    SON("son"),
+    DAUGHTER("daughter"),
+    FRIEND("friend"),
+    SISTER("sister"),
+    BROTHER("brother");
 
     private final String label;
 
