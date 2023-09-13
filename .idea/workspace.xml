@@ -4,8 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="48904fcc-10b3-4021-b86d-1138d1d75941" name="Changes" comment="Interfaces to code to that contain all methods listed in the project pdf">
+    <list default="true" id="48904fcc-10b3-4021-b86d-1138d1d75941" name="Changes" comment="Tables logic finished">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Table.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Table.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -15,9 +16,9 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Enum" />
         <option value="Interface" />
         <option value="Class" />
+        <option value="Enum" />
       </list>
     </option>
   </component>
@@ -34,7 +35,7 @@
   "keyToString": {
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
-    "git-widget-placeholder": "master"
+    "git-widget-placeholder": "colton__table__class"
   }
 }]]></component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
@@ -53,7 +54,49 @@
       <option name="project" value="LOCAL" />
       <updated>1694182618296</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="Interfaces to code to that contain all methods listed in the project pdf">
+      <created>1694541172385</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1694541172385</updated>
+    </task>
+    <task id="LOCAL-00003" summary="Started work on the Table class, select and remove done but untested.">
+      <created>1694549805543</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1694549805543</updated>
+    </task>
+    <task id="LOCAL-00004" summary="Started work on the Table class, select and remove done but untested.">
+      <created>1694549932902</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1694549932902</updated>
+    </task>
+    <task id="LOCAL-00005" summary="Fixed typo in Table">
+      <created>1694550247214</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1694550247214</updated>
+    </task>
+    <task id="LOCAL-00006" summary="Union, Select, and Difference methods done.">
+      <created>1694633388298</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1694633388298</updated>
+    </task>
+    <task id="LOCAL-00007" summary="Tables logic finished">
+      <created>1694637796953</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1694637796953</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -61,7 +104,24 @@
       <map>
         <entry key="MAIN">
           <value>
-            <State />
+            <State>
+              <option name="CUSTOM_BOOLEAN_PROPERTIES">
+                <map>
+                  <entry key="Show.Git.Branches" value="true" />
+                </map>
+              </option>
+              <option name="FILTERS">
+                <map>
+                  <entry key="branch">
+                    <value>
+                      <list>
+                        <option value="colton_table_class" />
+                      </list>
+                    </value>
+                  </entry>
+                </map>
+              </option>
+            </State>
           </value>
         </entry>
       </map>
@@ -69,6 +129,10 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Interfaces to code to that contain all methods listed in the project pdf" />
-    <option name="LAST_COMMIT_MESSAGE" value="Interfaces to code to that contain all methods listed in the project pdf" />
+    <MESSAGE value="Started work on the Table class, select and remove done but untested." />
+    <MESSAGE value="Fixed typo in Table" />
+    <MESSAGE value="Union, Select, and Difference methods done." />
+    <MESSAGE value="Tables logic finished" />
+    <option name="LAST_COMMIT_MESSAGE" value="Tables logic finished" />
   </component>
 </project>
