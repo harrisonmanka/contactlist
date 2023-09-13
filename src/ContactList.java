@@ -88,13 +88,13 @@ public class ContactList {
     public void promptUser(){
         System.out.println("Welcome to database display\n\n");
         Scanner scanner = new Scanner(System.in);
-        boolean end = false;
-        while(end){
+        boolean inProgress = true;
+        while(inProgress){
             promptChoice();
             String input = scanner.next();
             switch(input){
                 case "0": //quit
-                    end = true;
+                    inProgress = false;
                     break;
 
                 case "1": //intersect
@@ -104,6 +104,13 @@ public class ContactList {
                     String attribute = scanner.next();
                     System.out.println("Enter value > ");
                     String value = scanner.next();
+                    String otherGroup;
+                    if(group.equals("1")){
+                        otherGroup = "2";
+                    }
+                    else{
+                        otherGroup = "1";
+                    }
                     Table<? extends Contact> result;
                     if((workFirst == true) && (Integer.valueOf(group)) == 1){
                         result = workContacts.intersect(attribute, value, personalContacts);
@@ -111,11 +118,21 @@ public class ContactList {
                     else{
                         result = personalContacts.intersect(attribute, value, workContacts);
                     }
+                    printHeader(group, otherGroup);
                     printTable(result);
+                    printHeader(group, otherGroup);
+                    System.out.print("\n");
 
                 case "2": //difference
                     System.out.println("Enter Contact List > ");
                     String listNum = scanner.next();
+                    String otherGroup2;
+                    if(listNum.equals("1")){
+                        otherGroup2 = "2";
+                    }
+                    else{
+                        otherGroup2 = "1";
+                    }
                     Table<? extends Contact> result2;
                     if((workFirst == true) && (Integer.valueOf(listNum)) == 1){
                         result2 = workContacts.difference(personalContacts);
@@ -123,11 +140,21 @@ public class ContactList {
                     else{
                         result2 = personalContacts.difference(workContacts);
                     }
+                    printHeader(listNum, otherGroup2);
                     printTable(result2);
+                    printHeader(listNum, otherGroup2);
+                    System.out.print("\n");
 
                 case "3": //union
                     System.out.println("Enter Contact List > ");
                     String listNum2 = scanner.next();
+                    String otherGroup3;
+                    if(listNum2.equals("1")){
+                        otherGroup3 = "2";
+                    }
+                    else{
+                        otherGroup3 = "1";
+                    }
                     Table<? extends Contact> result3;
                     if((workFirst == true) && (Integer.valueOf(listNum2)) == 1){
                         result3 = workContacts.union(personalContacts);
@@ -135,7 +162,10 @@ public class ContactList {
                     else{
                         result3 = personalContacts.union(workContacts);
                     }
+                    printHeader(listNum2, otherGroup3);
                     printTable(result3);
+                    printHeader(listNum2, otherGroup3);
+                    System.out.print("\n");
 
                 case "4": //select
                     System.out.println("Enter table (1 or 2) > ");
@@ -144,6 +174,13 @@ public class ContactList {
                     String attribute2 = scanner.next();
                     System.out.println("Enter value > ");
                     String value2 = scanner.next();
+                    String otherGroup4;
+                    if(tableNum.equals("1")){
+                        otherGroup4 = "2";
+                    }
+                    else{
+                        otherGroup4 = "1";
+                    }
                     Table<? extends Contact> result4;
                     if((workFirst == true) && (Integer.valueOf(tableNum)) == 1){
                         result4 = workContacts.select(attribute2, value2);
@@ -151,7 +188,10 @@ public class ContactList {
                     else{
                         result4 = personalContacts.select(attribute2, value2);
                     }
+                    printHeader(tableNum, otherGroup4);
                     printTable(result4);
+                    printHeader(tableNum, otherGroup4);
+                    System.out.print("\n");
 
                 case "5": //remove
                     System.out.println("Enter attribute > ");
@@ -170,8 +210,16 @@ public class ContactList {
     }
 
     public void printTable(Table<? extends Contact> table){
-        
+        table.printAll();
     }
+
+    public void printHeader(String num, String num2){
+        String result = "";
+        result += "===========================Contact List " + num + ", Contact List " +
+                num2 + "============================";
+        System.out.println(result);
+    }
+
     public static void main(String[] args){
         ContactList go = new ContactList();
         go.readFiles();
