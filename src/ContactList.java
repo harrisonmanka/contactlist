@@ -8,6 +8,8 @@ public class ContactList {
     int count;
     boolean workFirst;
 
+    Scanner systemIn = new Scanner(System.in);
+
     public ContactList(){
         this.workContacts = new Table<>();
         this.personalContacts = new Table<>();
@@ -16,15 +18,14 @@ public class ContactList {
     }
 
     public void readFiles(){
-        Scanner scanner = new Scanner(System.in);
         try{
             System.out.print("Enter filename for contact list 1> ");
-            String file1 = scanner.next();
+            String file1 = systemIn.next();
             System.out.println(file1);
             File file = new File(file1);
             System.out.println();
             System.out.print("Enter filename for contact list 2> ");
-            String file2name = scanner.next();
+            String file2name = systemIn.next();
             System.out.println(file2name);
             File file2 = new File(file2name);
 
@@ -37,7 +38,6 @@ public class ContactList {
             System.out.println("File was not found. Re-enter your two files.\n" + e);
             readFiles();
         }
-        scanner.close();
     }
 
     public void populateTables(File file) throws FileNotFoundException {
@@ -93,11 +93,10 @@ public class ContactList {
 
     public void promptUser(){
         System.out.println("Welcome to database display\n\n");
-        Scanner scanner = new Scanner(System.in);
         boolean inProgress = true;
         while(inProgress){
             System.out.println(promptChoice());
-            String input = scanner.next();
+            String input = systemIn.next();
             switch(input){
                 case "0": //quit
                     inProgress = false;
@@ -105,11 +104,11 @@ public class ContactList {
 
                 case "1": //intersect
                     System.out.println("Enter group > ");
-                    String group = scanner.next();
+                    String group = systemIn.next();
                     System.out.println("Enter attribute > ");
-                    String attribute = scanner.next();
+                    String attribute = systemIn.next();
                     System.out.println("Enter value > ");
-                    String value = scanner.next();
+                    String value = systemIn.next();
                     String otherGroup;
                     if(group.equals("1")){
                         otherGroup = "2";
@@ -128,10 +127,11 @@ public class ContactList {
                     printTable(result);
                     printHeader(group, otherGroup);
                     System.out.print("\n");
+                    break;
 
                 case "2": //difference
                     System.out.println("Enter Contact List > ");
-                    String listNum = scanner.next();
+                    String listNum = systemIn.next();
                     String otherGroup2;
                     if(listNum.equals("1")){
                         otherGroup2 = "2";
@@ -150,10 +150,11 @@ public class ContactList {
                     printTable(result2);
                     printHeader(listNum, otherGroup2);
                     System.out.print("\n");
+                    break;
 
                 case "3": //union
                     System.out.println("Enter Contact List > ");
-                    String listNum2 = scanner.next();
+                    String listNum2 = systemIn.next();
                     String otherGroup3;
                     if(listNum2.equals("1")){
                         otherGroup3 = "2";
@@ -172,14 +173,15 @@ public class ContactList {
                     printTable(result3);
                     printHeader(listNum2, otherGroup3);
                     System.out.print("\n");
+                    break;
 
                 case "4": //select
                     System.out.println("Enter table (1 or 2) > ");
-                    String tableNum = scanner.next();
+                    String tableNum = systemIn.next();
                     System.out.println("Enter attribute > ");
-                    String attribute2 = scanner.next();
+                    String attribute2 = systemIn.next();
                     System.out.println("Enter value > ");
-                    String value2 = scanner.next();
+                    String value2 = systemIn.next();
                     String otherGroup4;
                     if(tableNum.equals("1")){
                         otherGroup4 = "2";
@@ -188,7 +190,7 @@ public class ContactList {
                         otherGroup4 = "1";
                     }
                     Table<? extends Contact> result4;
-                    if((workFirst) && (Integer.parseInt(tableNum)) == 1){
+                    if(workFirst && Integer.parseInt(tableNum) == 1 || !workFirst && Integer.parseInt(tableNum) == 1){
                         result4 = workContacts.select(attribute2, value2);
                     }
                     else{
@@ -198,21 +200,23 @@ public class ContactList {
                     printTable(result4);
                     printHeader(tableNum, otherGroup4);
                     System.out.print("\n");
+                    break;
 
                 case "5": //remove
                     System.out.println("Enter attribute > ");
-                    String attribute3 = scanner.next();
+                    String attribute3 = systemIn.next();
                     System.out.println("Enter value > ");
-                    String value3 = scanner.next();
+                    String value3 = systemIn.next();
                     workContacts.remove(attribute3, value3);
                     personalContacts.remove(attribute3, value3);
+                    break;
 
 
                 case "6": //print both tables
-                    
+                    break;
             }
         }
-        scanner.close();
+        systemIn.close();
     }
 
     public void printTable(Table<? extends Contact> table){

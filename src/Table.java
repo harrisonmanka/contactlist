@@ -30,7 +30,7 @@ public class Table<T extends Contact>{
         value = value.toLowerCase().trim();
         Attribute attb = null;
         try {
-            attb = Attribute.valueOf(value.toLowerCase().trim());
+            attb = Attribute.valueOf(attribute.toUpperCase().trim());
         }
         catch (IllegalArgumentException e) {
             System.out.println("The attribute given does not exist\n");
@@ -106,10 +106,10 @@ public class Table<T extends Contact>{
     }
 
     public Table<T> select(String attribute, String value) {
-        value = value.toLowerCase().trim();
+        value = value.trim();
         Attribute attb = null;
         try {
-            attb = Attribute.valueOf(value.toLowerCase().trim());
+            attb = Attribute.valueOf(attribute.toUpperCase().trim());
         }
         catch (IllegalArgumentException e) {
             System.out.println("The attribute given does not exist\n");

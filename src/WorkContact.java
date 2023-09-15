@@ -44,7 +44,7 @@ public class WorkContact extends Contact implements Cloneable{
         result += "\tPhone: " + super.getPhoneNumber() + "\n";
         result += "\t" + super.getStreet() + "\n\t" + super.getCity() + ", " +
                 super.getState() + " " + super.getZip() +
-                "--------------------------------------------------------------\n";
+                "\n--------------------------------------------------------------\n";
         return result;
     }
 

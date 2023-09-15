@@ -6,11 +6,10 @@
   <component name="ChangeListManager">
     <list default="true" id="48904fcc-10b3-4021-b86d-1138d1d75941" name="Changes" comment="Debugging">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Contact.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Contact.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/ContactList.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ContactList.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Label.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Label.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/personalContacts1-2.txt" beforeDir="false" afterPath="$PROJECT_DIR$/personalContacts1-2.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/workContacts2.txt" beforeDir="false" afterPath="$PROJECT_DIR$/workContacts2.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/PersonalContact.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/PersonalContact.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Table.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Table.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/WorkContact.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/WorkContact.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -46,6 +45,15 @@
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\colto\IdeaProjects\cs351\project1" />
     </key>
+  </component>
+  <component name="RunManager">
+    <configuration name="ContactList" type="Application" factoryName="Application">
+      <option name="MAIN_CLASS_NAME" value="ContactList" />
+      <module name="project1" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
@@ -126,7 +134,14 @@
       <option name="project" value="LOCAL" />
       <updated>1694801605152</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL-00011" summary="Debugging">
+      <created>1694804592062</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1694804592062</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -171,10 +186,15 @@
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
-        <line-breakpoint enabled="true" type="java-line">
+        <line-breakpoint type="java-line">
           <url>file://$PROJECT_DIR$/src/ContactList.java</url>
           <line>43</line>
           <option name="timeStamp" value="6" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/Table.java</url>
+          <line>108</line>
+          <option name="timeStamp" value="8" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
