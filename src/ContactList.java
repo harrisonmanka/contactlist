@@ -34,7 +34,7 @@ public class ContactList {
             System.out.println("\n");
         }
         catch(Exception e){
-            System.out.println("File was not found. Re-enter your two files.");
+            System.out.println("File was not found. Re-enter your two files.\n" + e);
             readFiles();
         }
         scanner.close();
@@ -42,13 +42,14 @@ public class ContactList {
 
     public void populateTables(File file) throws FileNotFoundException {
         Scanner scanner = new Scanner(file);
-        if(scanner.next().equals("P")){ //reading in Personal Contact
+        String fileType = scanner.nextLine();
+        if(fileType.equals("P")){ //reading in Personal Contact
             //Table<PersonalContact> personalContacts = new Table<>();
             count++;
             while(scanner.hasNext()){
                 String line = scanner.nextLine();
                 String[] temp = line.split(",\\s*");
-                Contact contact = new PersonalContact(Label.valueOf(temp[8]));
+                Contact contact = new PersonalContact(Label.valueOf(temp[8].toUpperCase()));
                 contact.setInfo(new PersonalInfo(temp[1], temp[0], Status.NA));
                 contact.setEmail(temp[2]);
                 contact.setPhoneNumber(temp[3]);
@@ -56,7 +57,7 @@ public class ContactList {
                 personalContacts.insert(contact);
             }
         }
-        else if(scanner.next().equals("W")){ //reading in Work Contact
+        else if(fileType.equals("W")){ //reading in Work Contact
             //Table<WorkContact> workContacts = new Table<>();
             count++;
             if(count == 1){ workFirst = true;}
@@ -64,7 +65,7 @@ public class ContactList {
                 String line = scanner.nextLine();
                 String[] temp = line.split(",\\s*");
                 Contact contact = new WorkContact(temp[9], temp[10], temp[11]);
-                contact.setInfo(new PersonalInfo(temp[1], temp[0], Status.valueOf(temp[2])));
+                contact.setInfo(new PersonalInfo(temp[1], temp[0], Status.valueOf(temp[2].toUpperCase())));
                 contact.setEmail(temp[3]);
                 contact.setPhoneNumber(temp[4]);
                 contact.buildAddress(temp[5], temp[6], temp[7], temp[8]);

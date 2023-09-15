@@ -13,8 +13,4 @@ public enum Label {
     private Label(String label) {
         this.label = label;
     }
-
-    String getLabel(){
-        return this.label;
-    }
 }

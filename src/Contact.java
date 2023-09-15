@@ -80,10 +80,7 @@ public class Contact{
     }
 
     public void buildAddress(String streetAddress, String city, String state, String zip){
-        this.address.streetAddress = streetAddress;
-        this.address.city = city;
-        this.address.state = state;
-        this.address.zip = zip;
+        this.address = new Address(streetAddress, city, state, zip);
     }
 
     private class Address{
