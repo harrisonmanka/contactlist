@@ -27,7 +27,7 @@ public class Table<T extends Contact>{
     }
 
     public void remove(String attribute, String value) {
-        value = value.toLowerCase().trim();
+        value = value.trim();
         Attribute attb = null;
         try {
             attb = Attribute.valueOf(attribute.toUpperCase().trim());
@@ -38,8 +38,8 @@ public class Table<T extends Contact>{
 
         Node<T> current = head;
         Node<T> tempNode = current;
+        String tempVal = null;
         for (int i = 0; i < length; i++) {
-            String tempVal = null;
             tempVal = this.attributeGrabber(attb, current);
             if (value.equals(tempVal)) {
                 if(current == head) {
