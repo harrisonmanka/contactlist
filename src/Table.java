@@ -146,17 +146,17 @@ public class Table<T extends Contact>{
         for (int i = 0; i < table.length; i++) {
             resultTable.insert(table.getNodeAt(i).data);
         }
-        compareThis = table.head;
-        current = table.head;
-        for (int i = 0; i < resultTable.length; i++) {
-            for (int j = i; j < resultTable.length; j++) {
+        compareThis = resultTable.head;
+        current = resultTable.head.next;
+        while (compareThis != null) {
+            while (current.next != null) {
                 if (compareThis.data.equals(current.next.data)) {
                     current.next = current.next.next;
                 }
                 current = current.next;
             }
             compareThis = compareThis.next;
-            current = resultTable.head;
+            current = compareThis;
         }
         return resultTable;
     }
