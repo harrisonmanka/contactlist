@@ -18,10 +18,15 @@ public class ContactList {
     public void readFiles(){
         Scanner scanner = new Scanner(System.in);
         try{
-            System.out.println("Enter filename for contact list 1> ");
-            File file = new File(scanner.next());
-            System.out.println("Enter filename for contact list 2> ");
-            File file2 = new File(scanner.next());
+            System.out.print("Enter filename for contact list 1> ");
+            String file1 = scanner.next();
+            System.out.println(file1);
+            File file = new File(file1);
+            System.out.println();
+            System.out.print("Enter filename for contact list 2> ");
+            String file2name = scanner.next();
+            System.out.println(file2name);
+            File file2 = new File(file2name);
 
             populateTables(file);
             populateTables(file2);
@@ -90,7 +95,7 @@ public class ContactList {
         Scanner scanner = new Scanner(System.in);
         boolean inProgress = true;
         while(inProgress){
-            promptChoice();
+            System.out.println(promptChoice());
             String input = scanner.next();
             switch(input){
                 case "0": //quit
@@ -112,7 +117,7 @@ public class ContactList {
                         otherGroup = "1";
                     }
                     Table<? extends Contact> result;
-                    if((workFirst == true) && (Integer.valueOf(group)) == 1){
+                    if((workFirst) && (Integer.parseInt(group)) == 1){
                         result = workContacts.intersect(attribute, value, personalContacts);
                     }
                     else{
@@ -134,7 +139,7 @@ public class ContactList {
                         otherGroup2 = "1";
                     }
                     Table<? extends Contact> result2;
-                    if((workFirst == true) && (Integer.valueOf(listNum)) == 1){
+                    if((workFirst) && (Integer.parseInt(listNum)) == 1){
                         result2 = workContacts.difference(personalContacts);
                     }
                     else{
@@ -156,7 +161,7 @@ public class ContactList {
                         otherGroup3 = "1";
                     }
                     Table<? extends Contact> result3;
-                    if((workFirst == true) && (Integer.valueOf(listNum2)) == 1){
+                    if((workFirst) && (Integer.parseInt(listNum2)) == 1){
                         result3 = workContacts.union(personalContacts);
                     }
                     else{
@@ -182,7 +187,7 @@ public class ContactList {
                         otherGroup4 = "1";
                     }
                     Table<? extends Contact> result4;
-                    if((workFirst == true) && (Integer.valueOf(tableNum)) == 1){
+                    if((workFirst) && (Integer.parseInt(tableNum)) == 1){
                         result4 = workContacts.select(attribute2, value2);
                     }
                     else{
