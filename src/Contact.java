@@ -1,3 +1,5 @@
+import java.util.Objects;
+
 public class Contact{
 
     private PersonalInfo info;
@@ -81,6 +83,28 @@ public class Contact{
 
     public void buildAddress(String streetAddress, String city, String state, String zip){
         this.address = new Address(streetAddress, city, state, zip);
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        boolean isEqual = false;
+        if (this == o) {
+            isEqual = true;
+        }
+        else if (o == null || o instanceof Contact) {
+            Contact contact = (Contact) o;
+            if (this.info.getFirstName().equals(contact.getInfo().getFirstName()) &&
+                    this.info.getLastName().equals(contact.getInfo().getLastName()) &&
+                    this.email.equals(contact.getEmail()) &&
+                    this.phoneNumber.equals(contact.getPhoneNumber()) &&
+                    this.address.streetAddress.equals(contact.address.streetAddress) &&
+                    this.address.city.equals(contact.address.city) &&
+                    this.address.state.equals(contact.address.state) &&
+                    this.address.zip.equals(contact.address.zip)) {
+                isEqual = true;
+            }
+        }
+        return isEqual;
     }
 
     private class Address{

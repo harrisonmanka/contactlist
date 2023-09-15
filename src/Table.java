@@ -62,7 +62,7 @@ public class Table<T extends Contact>{
         boolean isInside = false;
         for (int i = 0; i < this.length; i++) {
             for (int j = 0; j < table.length && !isInside; j++) {
-                if (currentThis.equals(currentThat)) {
+                if (currentThis.data.equals(currentThat.data)) {
                     isInside = true;
                 }
                 currentThat = currentThat.next;
@@ -70,7 +70,9 @@ public class Table<T extends Contact>{
             if (!isInside) {
                 resultTable.insert(currentThis.data);
             }
+            currentThat = table.head;
             currentThis = currentThis.next;
+            isInside = false;
         }
         return resultTable;
     }
@@ -81,7 +83,7 @@ public class Table<T extends Contact>{
         Node<T> compareThat = table.head;
         Attribute attb = null;
         try {
-            attb = Attribute.valueOf(value.toLowerCase().trim());
+            attb = Attribute.valueOf(attribute.toUpperCase().trim());
         }
         catch (IllegalArgumentException e) {
             System.out.println("-----------------------------------------------" +
@@ -93,13 +95,16 @@ public class Table<T extends Contact>{
         String tempVal2 = null;
         for (int i = 0; i < this.length; i++) {
             tempVal1 = this.attributeGrabber(attb, compareThis);
-            for (int j = 0; j < table.length; j++) {
-                tempVal2 = this.attributeGrabber(attb, compareThat);
-                if (tempVal1.equals(tempVal2)) {
-                    resultTable.insert(compareThis.data);
+            if (tempVal1.equals(value)) {
+                for (int j = 0; j < table.length; j++) {
+                    tempVal2 = this.attributeGrabber(attb, compareThat);
+                    if (tempVal1.equals(tempVal2)) {
+                        resultTable.insert(compareThis.data);
+                    }
+                    compareThat = compareThat.next;
                 }
-                compareThat = compareThat.next;
             }
+            compareThat = table.head;
             compareThis = compareThis.next;
         }
         return resultTable;
@@ -151,7 +156,7 @@ public class Table<T extends Contact>{
                 current = current.next;
             }
             compareThis = compareThis.next;
-            current = compareThis;
+            current = resultTable.head;
         }
         return resultTable;
     }

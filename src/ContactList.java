@@ -117,7 +117,7 @@ public class ContactList {
                         otherGroup = "1";
                     }
                     Table<? extends Contact> result;
-                    if((workFirst) && (Integer.parseInt(group)) == 1){
+                    if(workFirst && Integer.parseInt(group) == 1 || !workFirst && Integer.parseInt(group) == 2){
                         result = workContacts.intersect(attribute, value, personalContacts);
                     }
                     else{
@@ -140,7 +140,7 @@ public class ContactList {
                         otherGroup2 = "1";
                     }
                     Table<? extends Contact> result2;
-                    if((workFirst) && (Integer.parseInt(listNum)) == 1){
+                    if(workFirst && Integer.parseInt(listNum) == 1 || !workFirst && Integer.parseInt(listNum) == 2){
                         result2 = workContacts.difference(personalContacts);
                     }
                     else{
@@ -163,7 +163,7 @@ public class ContactList {
                         otherGroup3 = "1";
                     }
                     Table<? extends Contact> result3;
-                    if((workFirst) && (Integer.parseInt(listNum2)) == 1){
+                    if(workFirst && Integer.parseInt(listNum2) == 1 || !workFirst && Integer.parseInt(listNum2) == 2){
                         result3 = workContacts.union(personalContacts);
                     }
                     else{
@@ -190,7 +190,7 @@ public class ContactList {
                         otherGroup4 = "1";
                     }
                     Table<? extends Contact> result4;
-                    if(workFirst && Integer.parseInt(tableNum) == 1 || !workFirst && Integer.parseInt(tableNum) == 1){
+                    if(workFirst && Integer.parseInt(tableNum) == 1 || !workFirst && Integer.parseInt(tableNum) == 2){
                         result4 = workContacts.select(attribute2, value2);
                     }
                     else{
