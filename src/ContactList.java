@@ -3,14 +3,14 @@ import java.io.FileNotFoundException;
 import java.util.Scanner;
 
 public class ContactList {
-    Table<WorkContact> workContacts;
-    Table<PersonalContact> personalContacts;
+    Table<Contact> workContacts;
+    Table<Contact> personalContacts;
     int count;
     boolean workFirst;
 
     public ContactList(){
-        this.workContacts = new Table<WorkContact>();
-        this.personalContacts = new Table<PersonalContact>();
+        this.workContacts = new Table<>();
+        this.personalContacts = new Table<>();
         this.count = 0;
         this.workFirst = false;
     }
@@ -210,7 +210,7 @@ public class ContactList {
     }
 
     public void printTable(Table<? extends Contact> table){
-        table.printAll();
+        System.out.println(table.toString());
     }
 
     public void printHeader(String num, String num2){

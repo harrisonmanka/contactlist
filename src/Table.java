@@ -11,6 +11,50 @@ public class Table<T extends Contact>{
         this.length = 0;
     }
 
+    public void insert(Contact data) {
+        Node<T> temp = new Node<>(data);
+        if (this.head == null) {
+            this.head = temp;
+        }
+        else {
+            Node<T> current = head;
+            while (current.next != null) {
+                current = current.next;
+            }
+            current.next = temp;
+        }
+        this.length++;
+    }
+
+    public void remove(String attribute, String value) {
+        value = value.toLowerCase().trim();
+        Attribute attb = null;
+        try {
+            attb = Attribute.valueOf(value.toLowerCase().trim());
+        }
+        catch (IllegalArgumentException e) {
+            System.out.println("The attribute given does not exist\n");
+        }
+
+        Node<T> current = head;
+        Node<T> tempNode = current;
+        for (int i = 0; i < length; i++) {
+            String tempVal = null;
+            tempVal = this.attributeGrabber(attb, current);
+            if (value.equals(tempVal)) {
+                if(current == head) {
+                    head = current.next;
+                }
+                else {
+                    tempNode.next = current.next;
+                }
+                this.length--;
+            }
+            tempNode = current;
+            current = current.next;
+        }
+    }
+
     public Table<T> difference(Table<T> table) {
         Table<T> resultTable = new Table<>();
         Node<T> currentThis = this.head;
@@ -29,21 +73,6 @@ public class Table<T extends Contact>{
             currentThis = currentThis.next;
         }
         return resultTable;
-    }
-
-    public void insert(Contact data) {
-        Node<T> temp = new Node<>(data);
-        if (this.head == null) {
-            this.head = temp;
-        }
-        else {
-            Node<T> current = head;
-            while (current.next != null) {
-                current = current.next;
-            }
-            current.next = temp;
-        }
-        this.length++;
     }
 
     public Table<T> intersect(String attribute, String value, Table<T> table) {
@@ -74,48 +103,6 @@ public class Table<T extends Contact>{
             compareThis = compareThis.next;
         }
         return resultTable;
-    }
-
-    private String attributeGrabber(Attribute attribute, Node<T> node) {
-        String result = null;
-        switch (attribute) {
-            case FIRST -> result = node.data.getInfo().getFirstName();
-            case LAST -> result = node.data.getInfo().getLastName();
-            case STATUS -> result = node.data.getInfo().getStatus().toString();
-            case ADDRESS -> result = node.data.getAddress().toString();
-            case PHONE -> result = node.data.getPhoneNumber();
-            case EMAIL -> result = node.data.getEmail();
-        }
-        return result;
-    }
-
-    public void remove(String attribute, String value) {
-        value = value.toLowerCase().trim();
-        Attribute attb = null;
-        try {
-            attb = Attribute.valueOf(value.toLowerCase().trim());
-        }
-        catch (IllegalArgumentException e) {
-            System.out.println("The attribute given does not exist\n");
-        }
-
-        Node<T> current = head;
-        Node<T> tempNode = current;
-        for (int i = 0; i < length; i++) {
-            String tempVal = null;
-            tempVal = this.attributeGrabber(attb, current);
-            if (value.equals(tempVal)) {
-                if(current == head) {
-                    head = current.next;
-                }
-                else {
-                    tempNode.next = current.next;
-                }
-                this.length--;
-            }
-            tempNode = current;
-            current = current.next;
-        }
     }
 
     public Table<T> select(String attribute, String value) {
@@ -178,6 +165,18 @@ public class Table<T extends Contact>{
             }
         }
         return current;
+    }
+    private String attributeGrabber(Attribute attribute, Node<T> node) {
+        String result = null;
+        switch (attribute) {
+            case FIRST -> result = node.data.getInfo().getFirstName();
+            case LAST -> result = node.data.getInfo().getLastName();
+            case STATUS -> result = node.data.getInfo().getStatus().toString();
+            case ADDRESS -> result = String.valueOf(node.data.getAddress());
+            case PHONE -> result = node.data.getPhoneNumber();
+            case EMAIL -> result = node.data.getEmail();
+        }
+        return result;
     }
 
     public String toString() {
