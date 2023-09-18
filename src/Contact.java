@@ -320,10 +320,10 @@ public class Contact implements Cloneable, ContactInterface{
          * Constructor for the Contact class which initializes
          * our fields respectively.
          *
-         * @param streetAddress
-         * @param city
-         * @param state
-         * @param zip
+         * @param streetAddress the street address for the Address class
+         * @param city  the city address for the Address class
+         * @param state the state address for the Address class
+         * @param zip   the zip address for the Address class
          */
         public Address(String streetAddress, String city, String state, String zip) {
             this.streetAddress = streetAddress;
