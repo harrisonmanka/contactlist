@@ -27,10 +27,8 @@ public class PersonalContact extends Contact implements Cloneable{
     }
 
     public PersonalContact clone() {
-        try {
-            return (PersonalContact) super.clone();
-        } catch (CloneNotSupportedException e) {
-            throw new AssertionError();
-        }
+        PersonalContact clone = (PersonalContact) super.clone();
+        clone.label = this.label;
+        return clone;
     }
 }

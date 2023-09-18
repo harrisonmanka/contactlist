@@ -3,18 +3,14 @@ import java.io.FileNotFoundException;
 import java.util.Scanner;
 
 public class ContactList {
-    Table<Contact> workContacts;
-    Table<Contact> personalContacts;
-    int count;
-    boolean workFirst;
+    Table<Contact> table1;
+    Table<Contact> table2;
 
     Scanner systemIn = new Scanner(System.in);
 
     public ContactList(){
-        this.workContacts = new Table<>();
-        this.personalContacts = new Table<>();
-        this.count = 0;
-        this.workFirst = false;
+        this.table1 = new Table<>();
+        this.table2 = new Table<>();
     }
 
     public void readFiles(){
@@ -29,8 +25,8 @@ public class ContactList {
             System.out.println(file2name);
             File file2 = new File(file2name);
 
-            populateTables(file);
-            populateTables(file2);
+            populateTables(file, table1);
+            populateTables(file2, table2);
 
             System.out.println("\n");
         }
@@ -40,12 +36,10 @@ public class ContactList {
         }
     }
 
-    public void populateTables(File file) throws FileNotFoundException {
+    public void populateTables(File file, Table table) throws FileNotFoundException {
         Scanner scanner = new Scanner(file);
         String fileType = scanner.nextLine();
         if(fileType.equals("P")){ //reading in Personal Contact
-            //Table<PersonalContact> personalContacts = new Table<>();
-            count++;
             while(scanner.hasNext()){
                 String line = scanner.nextLine();
                 String[] temp = line.split(",\\s*");
@@ -54,13 +48,10 @@ public class ContactList {
                 contact.setEmail(temp[2]);
                 contact.setPhoneNumber(temp[3]);
                 contact.buildAddress(temp[4], temp[5], temp[6], temp[7]);
-                personalContacts.insert(contact);
+                table.insert(contact);
             }
         }
         else if(fileType.equals("W")){ //reading in Work Contact
-            //Table<WorkContact> workContacts = new Table<>();
-            count++;
-            if(count == 1){ workFirst = true;}
             while(scanner.hasNext()){
                 String line = scanner.nextLine();
                 String[] temp = line.split(",\\s*");
@@ -69,7 +60,7 @@ public class ContactList {
                 contact.setEmail(temp[3]);
                 contact.setPhoneNumber(temp[4]);
                 contact.buildAddress(temp[5], temp[6], temp[7], temp[8]);
-                workContacts.insert(contact);
+                table.insert(contact);
             }
         }
         else{
@@ -117,11 +108,11 @@ public class ContactList {
                         otherGroup = "1";
                     }
                     Table<? extends Contact> result;
-                    if(workFirst && Integer.parseInt(group) == 1 || !workFirst && Integer.parseInt(group) == 2){
-                        result = workContacts.intersect(attribute, value, personalContacts);
+                    if(Integer.parseInt(group) == 1){
+                        result = table1.intersect(attribute, value, table2);
                     }
                     else{
-                        result = personalContacts.intersect(attribute, value, workContacts);
+                        result = table2.intersect(attribute, value, table1);
                     }
                     printHeader(group, otherGroup);
                     printTable(result);
@@ -140,11 +131,11 @@ public class ContactList {
                         otherGroup2 = "1";
                     }
                     Table<? extends Contact> result2;
-                    if(workFirst && Integer.parseInt(listNum) == 1 || !workFirst && Integer.parseInt(listNum) == 2){
-                        result2 = workContacts.difference(personalContacts);
+                    if(Integer.parseInt(listNum) == 1){
+                        result2 = table2.difference(table1);
                     }
                     else{
-                        result2 = personalContacts.difference(workContacts);
+                        result2 = table1.difference(table2);
                     }
                     printHeader(listNum, otherGroup2);
                     printTable(result2);
@@ -163,11 +154,11 @@ public class ContactList {
                         otherGroup3 = "1";
                     }
                     Table<? extends Contact> result3;
-                    if(workFirst && Integer.parseInt(listNum2) == 1 || !workFirst && Integer.parseInt(listNum2) == 2){
-                        result3 = workContacts.union(personalContacts);
+                    if(Integer.parseInt(listNum2) == 1){
+                        result3 = table2.union(table1);
                     }
                     else{
-                        result3 = personalContacts.union(workContacts);
+                        result3 = table1.union(table2);
                     }
                     printHeader(listNum2, otherGroup3);
                     printTable(result3);
@@ -190,11 +181,11 @@ public class ContactList {
                         otherGroup4 = "1";
                     }
                     Table<? extends Contact> result4;
-                    if(workFirst && Integer.parseInt(tableNum) == 1 || !workFirst && Integer.parseInt(tableNum) == 2){
-                        result4 = workContacts.select(attribute2, value2);
+                    if(Integer.parseInt(tableNum) == 1){
+                        result4 = table2.select(attribute2, value2);
                     }
                     else{
-                        result4 = personalContacts.select(attribute2, value2);
+                        result4 = table1.select(attribute2, value2);
                     }
                     printHeader(tableNum, otherGroup4);
                     printTable(result4);
@@ -207,8 +198,8 @@ public class ContactList {
                     String attribute3 = systemIn.next();
                     System.out.println("Enter value > ");
                     String value3 = systemIn.next();
-                    workContacts.remove(attribute3, value3);
-                    personalContacts.remove(attribute3, value3);
+                    table2.remove(attribute3, value3);
+                    table1.remove(attribute3, value3);
                     break;
 
 

@@ -50,10 +50,10 @@ public class WorkContact extends Contact implements Cloneable{
 
     @Override
     public WorkContact clone() {
-        try {
-            return (WorkContact) super.clone();
-        } catch (CloneNotSupportedException e) {
-            throw new AssertionError();
-        }
+        WorkContact clone = (WorkContact) super.clone();
+        clone.department = this.department;
+        clone.company = this.company;
+        clone.title = this.title;
+        return clone;
     }
 }

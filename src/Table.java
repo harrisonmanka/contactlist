@@ -27,7 +27,7 @@ public class Table<T extends Contact>{
     }
 
     public void remove(String attribute, String value) {
-        value = value.trim();
+        value = value.trim().toLowerCase();
         Attribute attb = null;
         try {
             attb = Attribute.valueOf(attribute.toUpperCase().trim());
@@ -40,7 +40,7 @@ public class Table<T extends Contact>{
         Node<T> tempNode = current;
         String tempVal = null;
         for (int i = 0; i < length; i++) {
-            tempVal = this.attributeGrabber(attb, current);
+            tempVal = this.attributeGrabber(attb, current).toLowerCase();
             if (value.equals(tempVal)) {
                 if(current == head) {
                     head = current.next;
@@ -68,7 +68,7 @@ public class Table<T extends Contact>{
                 currentThat = currentThat.next;
             }
             if (!isInside) {
-                resultTable.insert(currentThis.data);
+                resultTable.insert(currentThis.data.clone());
             }
             currentThat = table.head;
             currentThis = currentThis.next;
@@ -78,6 +78,7 @@ public class Table<T extends Contact>{
     }
 
     public Table<T> intersect(String attribute, String value, Table<T> table) {
+        value = value.trim().toLowerCase();
         Table<T> resultTable = new Table<>();
         Node<T> compareThis = this.head;
         Node<T> compareThat = table.head;
@@ -94,12 +95,12 @@ public class Table<T extends Contact>{
         String tempVal1 = null;
         String tempVal2 = null;
         for (int i = 0; i < this.length; i++) {
-            tempVal1 = this.attributeGrabber(attb, compareThis);
+            tempVal1 = this.attributeGrabber(attb, compareThis).toLowerCase();
             if (tempVal1.equals(value)) {
                 for (int j = 0; j < table.length; j++) {
-                    tempVal2 = this.attributeGrabber(attb, compareThat);
+                    tempVal2 = this.attributeGrabber(attb, compareThat).toLowerCase();
                     if (tempVal1.equals(tempVal2)) {
-                        resultTable.insert(compareThis.data);
+                        resultTable.insert(compareThis.data.clone());
                     }
                     compareThat = compareThat.next;
                 }
@@ -111,7 +112,7 @@ public class Table<T extends Contact>{
     }
 
     public Table<T> select(String attribute, String value) {
-        value = value.trim();
+        value = value.trim().toLowerCase();
         Attribute attb = null;
         try {
             attb = Attribute.valueOf(attribute.toUpperCase().trim());
@@ -125,9 +126,9 @@ public class Table<T extends Contact>{
         boolean found = false;
         for (int i = 0; i < length; i++) {
             String tempVal = null;
-            tempVal = this.attributeGrabber(attb, current);
+            tempVal = this.attributeGrabber(attb, current).toLowerCase();
             if (value.equals(tempVal)) {
-                tempTable.insert(current.data);
+                tempTable.insert(current.data.clone());
             }
             current = current.next;
         }
@@ -138,14 +139,16 @@ public class Table<T extends Contact>{
     public Table<T> union(Table<T> table) {
         Table<T> resultTable = new Table<>();
         Node<T> current = this.head;
-        Node<T> compareThis = null;
+        Node<T> compareThis;
+
         for (int i = 0; i < this.length; i++) {
-            resultTable.insert(current.data);
+            resultTable.insert(current.data.clone());
             current = current.next;
         };
         for (int i = 0; i < table.length; i++) {
-            resultTable.insert(table.getNodeAt(i).data);
+            resultTable.insert(table.getNodeAt(i).data.clone());
         }
+
         compareThis = resultTable.head;
         current = resultTable.head.next;
         while (compareThis != null) {

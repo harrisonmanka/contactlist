@@ -1,6 +1,6 @@
 import java.util.Objects;
 
-public class Contact{
+public class Contact implements Cloneable{
 
     private PersonalInfo info;
     private Address address;
@@ -105,6 +105,27 @@ public class Contact{
             }
         }
         return isEqual;
+    }
+
+    @Override
+    public Contact clone() {
+        Contact clone = null;
+        try {
+            clone = (Contact) super.clone();
+            clone.info.setFirstName(this.getFirstName());
+            clone.info.setLastName(this.getLastName());
+            clone.info.setStatus(Status.valueOf(this.getStatus().toUpperCase()));
+            clone.address.city = this.address.city;
+            clone.address.streetAddress = this.address.streetAddress;
+            clone.address.zip = this.address.zip;
+            clone.address.state = this.address.state;
+            clone.phoneNumber = this.phoneNumber;
+            clone.email = this.email;
+        }
+        catch (CloneNotSupportedException e) {
+            System.out.println("Cannot create clone");
+        }
+        return clone;
     }
 
     private class Address{
