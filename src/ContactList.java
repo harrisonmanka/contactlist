@@ -154,10 +154,10 @@ public class ContactList {
                     }
                     Table<? extends Contact> result2;
                     if(Integer.parseInt(listNum) == 1){
-                        result2 = table2.difference(table1);
+                        result2 = table1.difference(table2);
                     }
                     else{
-                        result2 = table1.difference(table2);
+                        result2 = table2.difference(table1);
                     }
                     printHeader(listNum, otherGroup2);
                     printTable(result2);
@@ -177,10 +177,10 @@ public class ContactList {
                     }
                     Table<? extends Contact> result3;
                     if(Integer.parseInt(listNum2) == 1){
-                        result3 = table2.union(table1);
+                        result3 = table1.union(table2);
                     }
                     else{
-                        result3 = table1.union(table2);
+                        result3 = table2.union(table1);
                     }
                     printHeader(listNum2, otherGroup3);
                     printTable(result3);
@@ -204,10 +204,10 @@ public class ContactList {
                     }
                     Table<? extends Contact> result4;
                     if(Integer.parseInt(tableNum) == 1){
-                        result4 = table2.select(attribute2, value2);
+                        result4 = table1.select(attribute2, value2);
                     }
                     else{
-                        result4 = table1.select(attribute2, value2);
+                        result4 = table2.select(attribute2, value2);
                     }
                     printHeader(tableNum, otherGroup4);
                     printTable(result4);

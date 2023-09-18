@@ -42,14 +42,12 @@ public class Table<T extends Contact>{
      * @param value
      */
     public void remove(String attribute, String value) {
+        attribute = attribute.toUpperCase();
+        if (attribute.equals("STREET ADDRESS")) {
+            attribute = "STREET_ADDRESS";
+        }
+        Attribute attb = Attribute.valueOf(attribute);
         value = value.trim().toLowerCase();
-        Attribute attb = null;
-        try {
-            attb = Attribute.valueOf(attribute.toUpperCase().trim());
-        }
-        catch (IllegalArgumentException e) {
-            System.out.println("The attribute given does not exist\n");
-        }
 
         Node<T> current = head;
         Node<T> tempNode = current;
@@ -111,15 +109,12 @@ public class Table<T extends Contact>{
         Table<T> resultTable = new Table<>();
         Node<T> compareThis = this.head;
         Node<T> compareThat = table.head;
-        Attribute attb = null;
-        try {
-            attb = Attribute.valueOf(attribute.toUpperCase().trim());
+
+        attribute = attribute.toUpperCase();
+        if (attribute.equals("STREET ADDRESS")) {
+            attribute = "STREET_ADDRESS";
         }
-        catch (IllegalArgumentException e) {
-            System.out.println("-----------------------------------------------" +
-                    "\nThe attribute given does not exist" +
-                    "\n-----------------------------------------------");
-        }
+        Attribute attb = Attribute.valueOf(attribute);
 
         String tempVal1 = null;
         String tempVal2 = null;
@@ -149,13 +144,11 @@ public class Table<T extends Contact>{
      */
     public Table<T> select(String attribute, String value) {
         value = value.trim().toLowerCase();
-        Attribute attb = null;
-        try {
-            attb = Attribute.valueOf(attribute.toUpperCase().trim());
+        attribute = attribute.toUpperCase();
+        if (attribute.equals("STREET ADDRESS")) {
+            attribute = "STREET_ADDRESS";
         }
-        catch (IllegalArgumentException e) {
-            System.out.println("The attribute given does not exist\n");
-        }
+        Attribute attb = Attribute.valueOf(attribute);
 
         Table<T> tempTable = new Table<>();
         Node<T> current = head;
@@ -233,7 +226,10 @@ public class Table<T extends Contact>{
             case FIRST -> result = node.data.getInfo().getFirstName();
             case LAST -> result = node.data.getInfo().getLastName();
             case STATUS -> result = node.data.getInfo().getStatus().toString();
-            case ADDRESS -> result = String.valueOf(node.data.getAddress());
+            case STREET_ADDRESS -> result = node.data.getStreet();
+            case CITY -> result = result = node.data.getCity();
+            case STATE -> result = node.data.getState();
+            case ZIP -> result = node.data.getZip();
             case PHONE -> result = node.data.getPhoneNumber();
             case EMAIL -> result = node.data.getEmail();
         }

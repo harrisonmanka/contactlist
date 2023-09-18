@@ -3,7 +3,7 @@
  * about a person.
  */
 
-public class Contact implements Cloneable{
+public class Contact implements Cloneable, ContactInterface{
 
     /**
      * PersonalInfo field representing a Contacts' PersonalInfo
@@ -215,6 +215,95 @@ public class Contact implements Cloneable{
             System.out.println("Cannot create clone");
         }
         return clone;
+    }
+
+    /**
+     * Check to see if a record has an attribute. Should not be case-sensitive.
+     * @param attribute possible attribute within a record.
+     * @return true if the value is contained in the object, false otherwise.
+     */
+    @Override
+    public boolean exists(String attribute) {
+        attribute = attribute.toUpperCase();
+        if (attribute.equals("STREET ADDRESS")) {
+            attribute = "STREET_ADDRESS";
+        }
+        Attribute attb = Attribute.valueOf(attribute);
+        String result = null;
+        boolean exists = false;
+
+        switch (attb) {
+            case FIRST -> result = this.info.getFirstName();
+            case LAST -> result = this.info.getLastName();
+            case STATUS -> result = String.valueOf(this.info.getStatus());
+            case STREET_ADDRESS -> result = this.address.streetAddress;
+            case CITY -> result = this.address.city;
+            case STATE -> result = this.address.state;
+            case ZIP -> result = this.address.zip;
+            case PHONE -> result = this.phoneNumber;
+            case EMAIL -> result = this.email;
+        }
+        if (result != null) {
+            exists = true;
+        }
+        return exists;
+    }
+
+    /**
+     * Check to see if a record has an attribute containing a specific value. Should not be case-sensitive.
+     * @param attribute possible attribute within a record.
+     * @param value desired value of the attribute.
+     * @return true if the value is contained in the object, false otherwise.
+     * @throws IllegalArgumentException if the attribute is invalid.
+     */
+    @Override
+    public boolean hasValue(String attribute, String value) throws IllegalArgumentException {
+        attribute = attribute.toUpperCase();
+        if (attribute.equals("STREET ADDRESS")) {
+            attribute = "STREET_ADDRESS";
+        }
+        Attribute attb = Attribute.valueOf(attribute);
+        String result = null;
+        boolean exists = false;
+
+        switch (attb) {
+            case FIRST -> result = this.info.getFirstName();
+            case LAST -> result = this.info.getLastName();
+            case STATUS -> result = String.valueOf(this.info.getStatus());
+            case STREET_ADDRESS -> result = this.address.streetAddress;
+            case CITY -> result = this.address.city;
+            case STATE -> result = this.address.state;
+            case ZIP -> result = this.address.zip;
+            case PHONE -> result = this.phoneNumber;
+            case EMAIL -> result = this.email;
+        }
+        if (result != null && result.toLowerCase().equals(value.toLowerCase())) {
+            exists = true;
+        }
+        return exists;
+    }
+
+    /**
+     * Change the value of a specific attribute.
+     * @param attribute possible attribute within a record.
+     * @param value new value of the attribute.
+     * @throws IllegalArgumentException if the attribute is invalid.
+     */
+    @Override
+    public void setValue(String attribute, String value) throws IllegalArgumentException {
+        Attribute attb = Attribute.valueOf(attribute.toUpperCase());
+        String result = null;
+        switch (attb) {
+            case FIRST -> this.info.setFirstName(value);
+            case LAST -> this.info.setLastName(value);
+            case STATUS -> this.info.setStatus(Status.valueOf(value.toUpperCase()));
+            case STREET_ADDRESS -> this.address.streetAddress = value;
+            case CITY -> this.address.city = value;
+            case STATE -> this.address.state = value;
+            case ZIP -> this.address.zip = value;
+            case PHONE -> this.phoneNumber = value;
+            case EMAIL -> this.email = value;
+        }
     }
 
     private class Address {

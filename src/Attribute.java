@@ -6,7 +6,10 @@ public enum Attribute {
     FIRST("first"),
     LAST("last"),
     STATUS("status"),
-    ADDRESS("address"),
+    STREET_ADDRESS("street address"),
+    CITY("city"),
+    STATE("State"),
+    ZIP("zip"),
     PHONE("phone"),
     EMAIL("email");
 
