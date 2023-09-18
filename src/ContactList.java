@@ -212,7 +212,7 @@ public class ContactList {
                     printHeader(tableNum, otherGroup4);
                     printTable(result4);
                     printHeader(tableNum, otherGroup4);
-                    System.out.print("\n");
+                    System.out.println();
                     break;
 
                 case "5": //remove
@@ -226,6 +226,14 @@ public class ContactList {
 
 
                 case "6": //print both tables
+                    printSingleHeader("1");
+                    printTable(table1);
+                    printSingleHeader("1");
+                    System.out.println();
+                    printSingleHeader("2");
+                    printTable(table2);
+                    printSingleHeader("2");
+                    System.out.println();
                     break;
             }
         }
@@ -249,6 +257,13 @@ public class ContactList {
         String result = "";
         result += "===========================Contact List " + num + ", Contact List " +
                 num2 + "============================";
+        System.out.println(result);
+    }
+
+    public void printSingleHeader(String num){
+        String result = "";
+         result += "===========================Contact List " + num +
+                 "============================\n";
         System.out.println(result);
     }
 
