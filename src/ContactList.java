@@ -260,6 +260,11 @@ public class ContactList {
         System.out.println(result);
     }
 
+    /**
+     * Helper method to print out the top and bottom header of each table when the user selects
+     * option 6 to print out both tables.
+     * @param num
+     */
     public void printSingleHeader(String num){
         String result = "";
          result += "===========================Contact List " + num +
