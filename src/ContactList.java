@@ -268,7 +268,7 @@ public class ContactList {
     public void printSingleHeader(String num){
         String result = "";
          result += "===========================Contact List " + num +
-                 "============================\n";
+                 "============================";
         System.out.println(result);
     }
 

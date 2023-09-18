@@ -257,6 +257,7 @@ public class Table<T extends Contact>{
         for (Node<T> current = head; current != null; current = current.next) {
             result.append(current.data.toString());
         }
+        result.deleteCharAt(result.length() - 1);
         return result.toString();
     }
 

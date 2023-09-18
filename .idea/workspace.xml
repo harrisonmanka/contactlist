@@ -4,9 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="48904fcc-10b3-4021-b86d-1138d1d75941" name="Changes" comment="Documentation">
+    <list default="true" id="48904fcc-10b3-4021-b86d-1138d1d75941" name="Changes" comment="Finishing touches">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Attribute.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Attribute.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ContactList.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ContactList.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Table.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Table.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -192,7 +192,14 @@
       <option name="project" value="LOCAL" />
       <updated>1695071286727</updated>
     </task>
-    <option name="localTasksCounter" value="19" />
+    <task id="LOCAL-00019" summary="Finishing touches">
+      <created>1695073536311</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1695073536311</updated>
+    </task>
+    <option name="localTasksCounter" value="20" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -235,7 +242,8 @@
     <MESSAGE value="Implementing clonable with Contact and its subclasses" />
     <MESSAGE value="More bug fixes" />
     <MESSAGE value="Documentation" />
-    <option name="LAST_COMMIT_MESSAGE" value="Documentation" />
+    <MESSAGE value="Finishing touches" />
+    <option name="LAST_COMMIT_MESSAGE" value="Finishing touches" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
