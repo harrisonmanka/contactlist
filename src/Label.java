@@ -1,3 +1,6 @@
+/**
+ * Enum class representing enums for a variety of Label's.
+ */
 public enum Label {
 
     MOM("mom"),

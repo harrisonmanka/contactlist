@@ -1,3 +1,6 @@
+/**
+ * Enum class representing enums for a variety of Attributes.
+ */
 public enum Attribute {
 
     FIRST("first"),
@@ -11,9 +14,5 @@ public enum Attribute {
 
     Attribute(String attribute) {
         this.attribute = attribute;
-    }
-
-    public String getAttribute() {
-        return attribute;
     }
 }

@@ -1,3 +1,6 @@
+/**
+ * Enum class representing enums for a variety of Status's.
+ */
 public enum Status {
 
     MARRIED("married"),

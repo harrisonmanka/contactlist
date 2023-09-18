@@ -28,12 +28,9 @@ public class ContactList {
         try{
             System.out.print("Enter filename for contact list 1> ");
             String file1 = systemIn.next();
-            System.out.println(file1);
             File file = new File(file1);
-            System.out.println();
             System.out.print("Enter filename for contact list 2> ");
             String file2name = systemIn.next();
-            System.out.println(file2name);
             File file2 = new File(file2name);
 
             populateTables(file, table1);
@@ -108,10 +105,10 @@ public class ContactList {
      * command the user chooses.
      */
     public void promptUser(){
-        System.out.println("Welcome to database display\n\n");
+        System.out.println("Welcome to database display");
         boolean inProgress = true;
         while(inProgress){
-            System.out.println(promptChoice());
+            System.out.print(promptChoice());
             String input = systemIn.next();
             switch(input){
                 case "0": //quit
