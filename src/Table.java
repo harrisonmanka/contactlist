@@ -1,15 +1,26 @@
-
+/**
+ * Class representing a Table
+ * @param <T> Generic type for our table which will hold Personal and Work Contacts
+ */
 public class Table<T extends Contact>{
 
+    /** Generic Node field representing the head */
     private Node<T> head;
-
+    /** Integer field representing the length */
     private int length;
 
+    /**
+     * Constructor for the Table class that intializes its field accordingly.
+     */
     public Table() {
         this.head = null;
         this.length = 0;
     }
 
+    /**
+     * Insert method that inserts a Node containing a Contact to the end of the list.
+     * @param data
+     */
     public void insert(Contact data) {
         Node<T> temp = new Node<>(data);
         if (this.head == null) {
@@ -25,6 +36,11 @@ public class Table<T extends Contact>{
         this.length++;
     }
 
+    /**
+     * Remove method to remove a Node that contains the given attribute matching the given value.
+     * @param attribute
+     * @param value
+     */
     public void remove(String attribute, String value) {
         value = value.trim().toLowerCase();
         Attribute attb = null;
@@ -54,6 +70,12 @@ public class Table<T extends Contact>{
         }
     }
 
+    /**
+     * Difference method that creates a new table comprised of nodes in this table,
+     * but not in table.
+     * @param table
+     * @return Table containing nodes that are in this table and not in the table passed in.
+     */
     public Table<T> difference(Table<T> table) {
         Table<T> resultTable = new Table<>();
         Node<T> currentThis = this.head;
@@ -76,6 +98,14 @@ public class Table<T extends Contact>{
         return resultTable;
     }
 
+    /**
+     * Intersect method that creates a new table comprised of nodes having a value for a
+     * specific attribute, created from both tables.
+     * @param attribute
+     * @param value
+     * @param table
+     * @return Table containing nodes whose attributes match the given attribute and value.
+     */
     public Table<T> intersect(String attribute, String value, Table<T> table) {
         value = value.trim().toLowerCase();
         Table<T> resultTable = new Table<>();
@@ -110,6 +140,13 @@ public class Table<T extends Contact>{
         return resultTable;
     }
 
+    /**
+     * Select method that selects all nodes whose attribute matches the given
+     * attribute and value.
+     * @param attribute
+     * @param value
+     * @return Table containing all nodes whose attribute matches the given attribute and value.
+     */
     public Table<T> select(String attribute, String value) {
         value = value.trim().toLowerCase();
         Attribute attb = null;
@@ -135,6 +172,11 @@ public class Table<T extends Contact>{
         return tempTable;
     }
 
+    /**
+     * Union method that creates a new table comprised of nodes that occur in either table(s).
+     * @param table
+     * @return Table containing all nodes from both tables.
+     */
     public Table<T> union(Table<T> table) {
         Table<T> resultTable = new Table<>();
         Node<T> current = this.head;
@@ -163,6 +205,11 @@ public class Table<T extends Contact>{
         return resultTable;
     }
 
+    /**
+     * Helper method that takes in an index and returns that node.
+     * @param index
+     * @return Node at the specified index
+     */
     private Node<T> getNodeAt(int index) {
         Node<T> current = null;
         if (index >= 0 && index < this.length) {
@@ -173,6 +220,13 @@ public class Table<T extends Contact>{
         }
         return current;
     }
+
+    /**
+     * Helper method that grabs an attribute based off the given node.
+     * @param attribute
+     * @param node
+     * @return String representing the attribute grabbed.
+     */
     private String attributeGrabber(Attribute attribute, Node<T> node) {
         String result = null;
         switch (attribute) {
@@ -186,6 +240,11 @@ public class Table<T extends Contact>{
         return result;
     }
 
+    /**
+     * toString method that goes through a whole table and returns a string of
+     * all the nodes in that table.
+     * @return String representing all the nodes in the table.
+     */
     public String toString() {
         StringBuilder result = new StringBuilder();
         for (Node<T> current = head; current != null; current = current.next) {
@@ -194,14 +253,21 @@ public class Table<T extends Contact>{
         return result.toString();
     }
 
+    /**
+     * Private generic class representing our Node.
+     * @param <T> Generic type for our table which will hold Personal and Work Contacts
+     */
     private static class Node<T>{
-
 
         /** Contact information for the current node */
         private final Contact data;
         /** A pointer to the next node in the Linked List */
         private Node<T> next;
 
+        /**
+         * Private constructor for initializing a Node's fields.
+         * @param data
+         */
         private Node(Contact data) {
             this.data = data;
         }

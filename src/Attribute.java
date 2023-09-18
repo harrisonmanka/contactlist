@@ -9,7 +9,6 @@ public enum Attribute {
 
     private final String attribute;
 
-
     Attribute(String attribute) {
         this.attribute = attribute;
     }
