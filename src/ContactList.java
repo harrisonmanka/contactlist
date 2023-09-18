@@ -2,17 +2,28 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.Scanner;
 
+/**
+ * Class to represent our database program that contains two tables.
+ */
 public class ContactList {
+    /** Table field representing a Table of Contacts */
     Table<Contact> table1;
+    /** Table field representing a Table of Contacts */
     Table<Contact> table2;
-
+    /** Global scanner to receive input from the keyboard throughout the program */
     Scanner systemIn = new Scanner(System.in);
 
+    /**
+     * Constructor for initiating the tables
+     */
     public ContactList(){
         this.table1 = new Table<>();
         this.table2 = new Table<>();
     }
 
+    /**
+     * Method to prompt user for two text files containing Contacts to soon be read.
+     */
     public void readFiles(){
         try{
             System.out.print("Enter filename for contact list 1> ");
@@ -36,6 +47,12 @@ public class ContactList {
         }
     }
 
+    /**
+     * Method for populating the tables with Contacts based on file contents.
+     * @param file
+     * @param table
+     * @throws FileNotFoundException
+     */
     public void populateTables(File file, Table table) throws FileNotFoundException {
         Scanner scanner = new Scanner(file);
         String fileType = scanner.nextLine();
@@ -69,6 +86,10 @@ public class ContactList {
         scanner.close();
     }
 
+    /**
+     * Helper method to return the prompt for selection.
+     * @return String representing choices for the program
+     */
     public String promptChoice(){
         String temp = "";
         temp += "Please make choice: \n";
@@ -82,6 +103,10 @@ public class ContactList {
         return temp;
     }
 
+    /**
+     * Method that will prompt the user for their choice and run the specified database
+     * command the user chooses.
+     */
     public void promptUser(){
         System.out.println("Welcome to database display\n\n");
         boolean inProgress = true;
@@ -210,10 +235,19 @@ public class ContactList {
         systemIn.close();
     }
 
+    /**
+     * Helper method to print out the tables toString() method
+     * @param table
+     */
     public void printTable(Table<? extends Contact> table){
         System.out.println(table.toString());
     }
 
+    /**
+     * Helper method to print out the top and bottom header of each result of a database command.
+     * @param num
+     * @param num2
+     */
     public void printHeader(String num, String num2){
         String result = "";
         result += "===========================Contact List " + num + ", Contact List " +
@@ -221,6 +255,10 @@ public class ContactList {
         System.out.println(result);
     }
 
+    /**
+     * Main method that creates a ContactList and starts the whole program.
+     * @param args
+     */
     public static void main(String[] args){
         ContactList go = new ContactList();
         go.readFiles();

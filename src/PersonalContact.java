@@ -1,19 +1,30 @@
+/**
+ * Class representing a PersonalContact which is a subclass of Contact.
+ */
 public class PersonalContact extends Contact implements Cloneable{
-
+    /** Label field representing a label */
     private Label label;
 
+    /**
+     * Constructor for the PersonalContact class that initializes the label field.
+     * @param label
+     */
     public PersonalContact(Label label){
         this.label = label;
     }
 
+    /**
+     * Getter method to return a Label
+     * @return Label
+     */
     public Label getLabel() {
         return label;
     }
 
-    public void setLabel(Label label) {
-        this.label = label;
-    }
-
+    /**
+     * toString method that prints out a PersonalContact's information
+     * @return String representing information in the specified format
+     */
     public String toString(){
         String result = "";
         result += "Category: " + getLabel() + "\n";
@@ -26,6 +37,11 @@ public class PersonalContact extends Contact implements Cloneable{
         return result;
     }
 
+    /**
+     * Clone method that clones a PersonalContact
+     * @return Cloned PersonalContact
+     */
+    @Override
     public PersonalContact clone() {
         PersonalContact clone = (PersonalContact) super.clone();
         clone.label = this.label;

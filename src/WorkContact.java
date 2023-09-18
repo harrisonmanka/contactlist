@@ -1,39 +1,55 @@
+/**
+ * Class representing a WorkContact which is a subclass of Contact.
+ */
 public class WorkContact extends Contact implements Cloneable{
 
+    /** String field representing a title */
     private String title;
+    /** String field representing a company */
     private String company;
+    /** String field representing a department */
     private String department;
 
+    /**
+     * Constructor for the WorkContact class that initializes all fields.
+     * @param title
+     * @param company
+     * @param department
+     */
     public WorkContact(String title, String company, String department){
         this.title = title;
         this.company = company;
         this.department = department;
     }
 
+    /**
+     * Getter method that returns the title
+     * @return String representing a title
+     */
     String getTitle() {
         return this.title;
     }
 
-    void setTitle(String title){
-        this.title = title;
-    }
-
+    /**
+     * Getter method that returns the company name
+     * @return String representing a company
+     */
     String getCompany() {
         return this.company;
     }
 
-    void setCompany(String company) {
-        this.company = company;
-    }
-
+    /**
+     * Getter method that returns the department name
+     * @return String representing a department
+     */
     String getDepartment() {
         return this.department;
     }
 
-    void setDepartment(String department) {
-        this.department = department;
-    }
-
+    /**
+     * toString method that prints out a WorkContact's information
+     * @return String representing information in the specified format
+     */
     public String toString(){
         String result = "";
         result += "Job Title: " + getTitle() + "\n";
@@ -48,6 +64,10 @@ public class WorkContact extends Contact implements Cloneable{
         return result;
     }
 
+    /**
+     * Clone method that clones a WorkContact
+     * @return Cloned WorkContact
+     */
     @Override
     public WorkContact clone() {
         WorkContact clone = (WorkContact) super.clone();

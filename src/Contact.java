@@ -1,97 +1,183 @@
-import java.util.Objects;
+/**
+ * Class representing our Contact with information
+ * about a person.
+ */
 
 public class Contact implements Cloneable{
 
+    /**
+     * PersonalInfo field representing a Contacts' PersonalInfo
+     */
     private PersonalInfo info;
+    /**
+     * Address field representing a Contacts' Address
+     */
     private Address address;
+    /**
+     * String field representing a Contacts' phoneNumber
+     */
     private String phoneNumber;
+    /**
+     * String field representing a Contacts' email
+     */
     private String email;
 
-    public Contact(PersonalInfo info, Address address, String phoneNumber, String email){
-        this.info = info;
-        this.address = address;
-        this.phoneNumber = phoneNumber;
-        this.email = email;
-    }
-
-    public Contact(){
+    /**
+     * Constructor for the Contact class which initializes
+     * our fields respectively.
+     */
+    public Contact() {
         this.info = null;
         this.address = null;
         this.phoneNumber = "";
         this.email = "";
     }
 
+    /**
+     * Getter method to return a Contact's object PersonalInfo field.
+     *
+     * @return PersonalInfo object
+     */
     public PersonalInfo getInfo() {
         return info;
     }
 
+    /**
+     * Setter method that takes in a PersonalInfo object and sets a Contact's PersonalInfo field
+     * to the new PersonalInfo object.
+     *
+     * @param info
+     */
     public void setInfo(PersonalInfo info) {
         this.info = info;
     }
 
-    public String getFirstName(){
+    /**
+     * Getter method to return a Contact's PersonalInfo firstName field.
+     *
+     * @return String representing firstName
+     */
+    public String getFirstName() {
         return this.info.getFirstName();
     }
 
-    public String getLastName(){
+    /**
+     * Getter method to return a Contact's PersonalInfo lastName field.
+     *
+     * @return String representing lastName
+     */
+    public String getLastName() {
         return this.info.getLastName();
     }
 
-    public String getStatus(){
+    /**
+     * Getter method to return a Contact's PersonalInfo status field.
+     *
+     * @return String presenting a Status
+     */
+    public String getStatus() {
         return this.info.getStatus().toString();
     }
 
+    /**
+     * Getter method to return a Contact's Address object field.
+     *
+     * @return Address object
+     */
     public Address getAddress() {
         return this.address;
     }
 
-    public void setAddress(Address address) {
-        this.address = address;
-    }
-
+    /**
+     * Getter method to return a Contact's phoneNumber field.
+     *
+     * @return String representing a phoneNumber
+     */
     public String getPhoneNumber() {
         return phoneNumber;
     }
 
+    /**
+     * Setter method to set a Contact's phoneNumber to a new phoneNumber.
+     *
+     * @param phoneNumber
+     */
     public void setPhoneNumber(String phoneNumber) {
         this.phoneNumber = phoneNumber;
     }
 
+    /**
+     * Getter method to return a Contact's email field.
+     *
+     * @return String representing an email
+     */
     public String getEmail() {
         return email;
     }
 
+    /**
+     * Setter method to set a Contact's email to a new email.
+     * @param email
+     */
     public void setEmail(String email) {
         this.email = email;
     }
 
-    public String getStreet(){
+    /**
+     * Getter method to return a Contact's inner Address's streetAddress field.
+     * @return String representing a streetAddress
+     */
+    public String getStreet() {
         return this.address.streetAddress;
     }
 
-    public String getCity(){
+    /**
+     * Getter method to return a Contact's inner Address's city field.
+     * @return String representing a city
+     */
+    public String getCity() {
         return this.address.city;
     }
 
-    public String getState(){
+    /**
+     * Getter method to return a Contact's inner Address's state field.
+     * @return String representing a state
+     */
+    public String getState() {
         return this.address.state;
     }
 
-    public String getZip(){
+    /**
+     * Getter method to return a Contact's inner Address's zip code field.
+     * @return String representing a zip code
+     */
+    public String getZip() {
         return this.address.zip;
     }
 
-    public void buildAddress(String streetAddress, String city, String state, String zip){
+    /**
+     * Build method to create build a new Address given specific params for an address.
+     * @param streetAddress
+     * @param city
+     * @param state
+     * @param zip
+     */
+    public void buildAddress(String streetAddress, String city, String state, String zip) {
         this.address = new Address(streetAddress, city, state, zip);
     }
 
+    /**
+     * Equals method that compares firstName, lastName, email, phoneNumber, streetAddress,
+     * city, state, and zip code.
+     * @param o
+     * @return Boolean representing true or false if both Objects are equal
+     */
     @Override
     public boolean equals(Object o) {
         boolean isEqual = false;
         if (this == o) {
             isEqual = true;
-        }
-        else if (o == null || o instanceof Contact) {
+        } else if (o == null || o instanceof Contact) {
             Contact contact = (Contact) o;
             if (this.info.getFirstName().equals(contact.getInfo().getFirstName()) &&
                     this.info.getLastName().equals(contact.getInfo().getLastName()) &&
@@ -107,7 +193,10 @@ public class Contact implements Cloneable{
         return isEqual;
     }
 
-    @Override
+    /**
+     * Clone method to clone a Contact.
+     * @return Cloned Contact
+     */
     public Contact clone() {
         Contact clone = null;
         try {
@@ -128,48 +217,29 @@ public class Contact implements Cloneable{
         return clone;
     }
 
-    private class Address{
+    private class Address {
+        /** String field representing a streetAddress */
         String streetAddress;
+        /** String field representing a city */
         String city;
+        /** String field representing a state */
         String state;
+        /** String field representing a zip */
         String zip;
 
-        public Address(String streetAddress, String city, String state, String zip){
+        /**
+         * Constructor for the Contact class which initializes
+         * our fields respectively.
+         *
+         * @param streetAddress
+         * @param city
+         * @param state
+         * @param zip
+         */
+        public Address(String streetAddress, String city, String state, String zip) {
             this.streetAddress = streetAddress;
             this.city = city;
             this.state = state;
-            this.zip = zip;
-        }
-
-        public String getStreetAddress() {
-            return streetAddress;
-        }
-
-        public void setStreetAddress(String streetAddress) {
-            this.streetAddress = streetAddress;
-        }
-
-        public String getCity() {
-            return city;
-        }
-
-        public void setCity(String city) {
-            this.city = city;
-        }
-
-        public String getState() {
-            return state;
-        }
-
-        public void setState(String state) {
-            this.state = state;
-        }
-
-        public String getZip() {
-            return zip;
-        }
-
-        public void setZip(String zip) {
             this.zip = zip;
         }
     }
