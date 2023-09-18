@@ -11,11 +11,12 @@ public enum Attribute {
     STATE("State"),
     ZIP("zip"),
     PHONE("phone"),
-    EMAIL("email");
-
-    private final String attribute;
+    EMAIL("email"),
+    LABEL("label"),
+    TITLE("title"),
+    COMPANY("company"),
+    DEPARTMENT("department");
 
     Attribute(String attribute) {
-        this.attribute = attribute;
     }
 }

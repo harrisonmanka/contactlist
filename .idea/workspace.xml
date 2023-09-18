@@ -4,14 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="48904fcc-10b3-4021-b86d-1138d1d75941" name="Changes" comment="Implementing clonable with Contact and its subclasses">
-      <change afterPath="$PROJECT_DIR$/personalContacts1.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/ContactInterface.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/workContacts2.txt" afterDir="false" />
+    <list default="true" id="48904fcc-10b3-4021-b86d-1138d1d75941" name="Changes" comment="Documentation">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Attribute.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Attribute.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Contact.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Contact.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ContactList.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ContactList.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Table.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Table.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -37,14 +32,14 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "git-widget-placeholder": "master",
-    "last_opened_file_path": "C:/Users/colto/IdeaProjects/cs351/project1"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/colto/IdeaProjects/cs351/project1&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\colto\IdeaProjects\cs351\project1" />
@@ -183,7 +178,21 @@
       <option name="project" value="LOCAL" />
       <updated>1695063422049</updated>
     </task>
-    <option name="localTasksCounter" value="17" />
+    <task id="LOCAL-00017" summary="More bug fixes">
+      <created>1695071032719</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1695071032719</updated>
+    </task>
+    <task id="LOCAL-00018" summary="Documentation">
+      <created>1695071286727</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1695071286727</updated>
+    </task>
+    <option name="localTasksCounter" value="19" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -224,7 +233,9 @@
     <MESSAGE value="Fixed method calls." />
     <MESSAGE value="Debugging" />
     <MESSAGE value="Implementing clonable with Contact and its subclasses" />
-    <option name="LAST_COMMIT_MESSAGE" value="Implementing clonable with Contact and its subclasses" />
+    <MESSAGE value="More bug fixes" />
+    <MESSAGE value="Documentation" />
+    <option name="LAST_COMMIT_MESSAGE" value="Documentation" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

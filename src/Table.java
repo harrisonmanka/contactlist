@@ -227,11 +227,22 @@ public class Table<T extends Contact>{
             case LAST -> result = node.data.getInfo().getLastName();
             case STATUS -> result = node.data.getInfo().getStatus().toString();
             case STREET_ADDRESS -> result = node.data.getStreet();
-            case CITY -> result = result = node.data.getCity();
+            case CITY -> result = node.data.getCity();
             case STATE -> result = node.data.getState();
             case ZIP -> result = node.data.getZip();
             case PHONE -> result = node.data.getPhoneNumber();
             case EMAIL -> result = node.data.getEmail();
+            default -> {
+                if (node.data instanceof PersonalContact && attribute.equals(Attribute.LABEL)) {
+                        result = String.valueOf(((PersonalContact) node.data).getLabel());
+                } else if (node.data instanceof WorkContact) {
+                    switch (attribute) {
+                        case TITLE -> result = ((WorkContact) node.data).getTitle();
+                        case COMPANY -> result = ((WorkContact) node.data).getCompany();
+                        case DEPARTMENT -> result = ((WorkContact) node.data).getDepartment();
+                    }
+                }
+            }
         }
         return result;
     }
