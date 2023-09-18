@@ -116,11 +116,11 @@ public class ContactList {
                     break;
 
                 case "1": //intersect
-                    System.out.println("Enter group > ");
+                    System.out.print("Enter group > ");
                     String group = systemIn.next();
-                    System.out.println("Enter attribute > ");
+                    System.out.print("Enter attribute > ");
                     String attribute = systemIn.next();
-                    System.out.println("Enter value > ");
+                    System.out.print("Enter value > ");
                     String value = systemIn.next();
                     String otherGroup;
                     if(group.equals("1")){
@@ -143,7 +143,7 @@ public class ContactList {
                     break;
 
                 case "2": //difference
-                    System.out.println("Enter Contact List > ");
+                    System.out.print("Enter Contact List > ");
                     String listNum = systemIn.next();
                     String otherGroup2;
                     if(listNum.equals("1")){
@@ -166,7 +166,7 @@ public class ContactList {
                     break;
 
                 case "3": //union
-                    System.out.println("Enter Contact List > ");
+                    System.out.print("Enter Contact List > ");
                     String listNum2 = systemIn.next();
                     String otherGroup3;
                     if(listNum2.equals("1")){
@@ -189,11 +189,11 @@ public class ContactList {
                     break;
 
                 case "4": //select
-                    System.out.println("Enter table (1 or 2) > ");
+                    System.out.print("Enter table (1 or 2) > ");
                     String tableNum = systemIn.next();
-                    System.out.println("Enter attribute > ");
+                    System.out.print("Enter attribute > ");
                     String attribute2 = systemIn.next();
-                    System.out.println("Enter value > ");
+                    System.out.print("Enter value > ");
                     String value2 = systemIn.next();
                     String otherGroup4;
                     if(tableNum.equals("1")){
@@ -216,9 +216,9 @@ public class ContactList {
                     break;
 
                 case "5": //remove
-                    System.out.println("Enter attribute > ");
+                    System.out.print("Enter attribute > ");
                     String attribute3 = systemIn.next();
-                    System.out.println("Enter value > ");
+                    System.out.print("Enter value > ");
                     String value3 = systemIn.next();
                     table2.remove(attribute3, value3);
                     table1.remove(attribute3, value3);
